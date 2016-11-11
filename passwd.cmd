@@ -56,6 +56,22 @@
     Days since Jan 1, 1970 that account is disabled
    reserved
     A reserved field
+    
+3. Show user account status
+[root@unxXXXX ~]# passwd -S sysunix
+sysunix PS 2003-03-26 0 99999 7 -1 (Password set, MD5 crypt.)
+
+[root@unxXXXX ~]# chage -l sysunix
+Last password change                                    : Mar 26, 2003
+Password expires                                        : never
+Password inactive                                       : never
+Account expires                                         : never
+Minimum number of days between password change          : 0
+Maximum number of days between password change          : 99999
+Number of days of warning before password expires       : 7
+
+
+ 
    
 
 
