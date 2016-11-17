@@ -6,3 +6,45 @@ Initializing a Repository in an Existing Directory
   
 Coning an Existing Repository
   git clone https://github.com/libgit2/libgit2
+  
+  Untracked           Unmodified      Modified        Staged
+   |-------------------  Add the file------------------->|
+                          |---- Edit file->|
+                                           |-Stage file->|
+   |<------Remove file----|
+                          |<----------Commit------------>|
+                          
+Checking the Status of Your File
+  git status
+  git add        # stage status, add to tracking
+  
+Staging Modified File
+  git add         # stage status, add the modified tracking file
+  
+
+Viewing Your Staged and Unstaged Changes
+  *Changed but not yet staged:
+    git diff
+  *Staged go into next commit
+    git diff --staged
+
+Committing Your Change
+  git commit
+  
+Skipping the Staging Area
+  git commit -a
+  
+Removing Files
+  git rm      # Remove from git track and physical remove from directory
+  git rm --cached   #Remove from git track and keep the file in directory
+  
+Moving Files
+  git mv file_from file_to      =   mv file_from file_to; git rm file_from;git add file_to
+
+
+
+
+  
+  
+  
+
