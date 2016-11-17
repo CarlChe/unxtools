@@ -41,6 +41,51 @@ Removing Files
 Moving Files
   git mv file_from file_to      =   mv file_from file_to; git rm file_from;git add file_to
 
+Viewing the Commit History
+  git log
+  git log -p        # show the difference
+  git log --stat    # abbreviated stats
+  git log --pretty=oneline
+  git log --graph
+
+
+
+Undoing things
+  git commit --amend      #Undo the last commit
+  
+Unstaging a Staged File
+  git reset HEAD <file>  # unstage
+
+Unmofifying a Modified File
+  git checkout -- <file>
+  
+
+Working with Remote
+
+Showing Your Remotes
+  git remote
+  git remote -v
+
+Adding Remote Repositories
+  git remote add pb https://github.com/libgit2/libgit2.git
+  git fetch pb
+  
+Fetching and Pulling from Your remote
+  git fetch [remote-name]   # pull down all data, all the branches
+  git pull                  # current branch track remote branch, fetch and merge that remote branch into your current branch
+  
+Pushing to Your Remotes
+  git push origin master
+  
+Inspecting a Remote
+  git remote show [remote-name]
+  
+Removing and Renaming Remotes
+  git remote rename pb paul
+  git remote rm paul
+
+  
+  
 
 
 
