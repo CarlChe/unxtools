@@ -1,0 +1,31 @@
+How is an encoded password stored in /etc/shadow file, and how does the system verify a user typed password during login?
+
+For understanding how this entire thing works, let's take the case of the previously shown example entry for root user,
+from /etc/shadow file.
+
+[root@v1 ~]# cat /etc/shadow
+root:$6$1gaUdbgty4xDO1cP$tdUiBnjHtL7.LoPqxuSfwYLFf0AuLEpCnMhs8Q6nBPiHEGJ/nnECZ3gI4NpJOH7wXScITMAF5DQTm2Hew2hzp.::0:99999:7:::
+
+
+From the above shown example entry, our topic of interest is the second field(the field with the encoded hash of the password).
+
+The above shown encoded hash value can be further classified into three different fields as below.
+
+1. The first field is a numerical number that tell's you the hashing algorithm that's being used.
+
+     $1 = MD5 hashing algorithm.
+     $2 =Blowfish Algorithm is in use.
+     $2a=eksblowfish Algorithm
+     $5 =SHA-256 Algorithm
+     $6 =SHA-512 Algorithm
+
+2. The second field is the salt value
+
+Salt value is nothing but a random data that's generated to combine with the original password, inorder to increase the strength of 
+the hash. (the content between the second and third $ sign)
+
+3.The last field is the hash value of salt+user password (we will be discussing this shortly).
+
+ 
+python3 -c 'import crypt;print(crypt.crypt("whatpasswdis", crypt.mksalt(crypt.METHOD_SHA512)))'
+$6$3mFImZ97Tgh4/UeV$B7rbit4A8xElXM.7myU1n7xkmhEQUKnv.80VKKNeTDJbvG45ZgStMu5NskmYu03kBRSUI3vD/Dn1VNAmKzavo0
